@@ -100,19 +100,6 @@
 
 /* Media Query */
 
-@media (max-width: 1200px) {
-  .skills-bar {
-    line-height: 4rem;
-  }
-  .skills-image {
-    display: none;
-  }
-  .skill-cards-container {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-  }
-}
-
 @media (max-width: 768px) {
   .skills-container {
     flex-direction: column;
