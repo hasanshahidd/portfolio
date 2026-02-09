@@ -1,0 +1,133 @@
+@import "../../_globalColor";
+
+/* Skill Items Layout - Clean Icon + Name */
+.skill-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px 40px;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+  cursor: default;
+  padding: 5px 0;
+}
+
+.skill-item:hover {
+  transform: translateX(8px);
+}
+
+.skill-icon {
+  font-size: 36px;
+  color: $buttonColor;
+  min-width: 36px;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  color: $buttonHover;
+  transform: scale(1.1);
+}
+
+.skill-name {
+  font-size: 17px;
+  font-weight: 500;
+  color: $titleColor;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Dark mode styles */
+.dark-mode .skill-name {
+  color: $textColorDark;
+}
+
+/* Legacy meter styles (keep for backwards compatibility) */
+.meter {
+  height: 20px;
+  position: relative;
+  background: $progressBarBackground;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  border-radius: 25px;
+  display: none; /* Hide old progress bars */
+}
+.meter > span {
+  display: block;
+  height: 100%;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: $progressBarSpanBG;
+  position: relative;
+  overflow: hidden;
+}
+.skill {
+  line-height: 3.5vw;
+}
+.skill-bars {
+  font-size: 28px;
+  width: 40%;
+}
+.skills-container {
+  display: flex;
+  width: 90%;
+  padding: 20px 10px;
+  margin: 0px auto;
+  margin-top: 2rem;
+}
+.skills-container > * {
+  flex: 1;
+  margin-bottom: 30px;
+}
+.skills-image > img {
+  margin-left: 80px;
+  max-width: 90%;
+  height: auto;
+}
+
+/* Media Query */
+
+@media (max-width: 1456px) {
+  .skills-bar {
+    line-height: 4rem;
+  }
+  .skills-image {
+    display: none;
+    order: 2;
+  }
+  .skill-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    flex-direction: column;
+  }
+  .skills-bar {
+    line-height: 3rem;
+    margin: 20px;
+  }
+  .skills-image {
+    display: none;
+    order: 2;
+  }
+  .skill-cards-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  .skill-card {
+    padding: 20px 15px;
+  }
+  .skill-card-percentage {
+    font-size: 24px;
+  }
+}
