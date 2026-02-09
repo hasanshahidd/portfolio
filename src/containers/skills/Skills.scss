@@ -16,8 +16,10 @@
 }
 
 .skills-image-div > img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  min-height: 600px;
 }
 
 .skills-image-div {
@@ -25,6 +27,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  height: 100%;
 }
 
 .skills-heading {
