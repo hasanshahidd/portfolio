@@ -16,7 +16,7 @@ const splashScreen = {
 // Summary And Greeting Section
 
 const illustration = {
-  animated: true // Set to false to use static SVG
+  animated: false // Set to false to use static SVG
 };
 
 const greeting = {
@@ -289,81 +289,39 @@ const achievementSection = {
 
   achievementsCards: [
     {
-      title: "Artificial Intelligence with Python",
+      title: "Big Data Analytics Certification",
       subtitle:
-        "Python-based AI certification covering machine learning algorithms, neural networks, and intelligent system development.",
-      image: require("./assets/images/AI with python.jpeg"),
-      imageAlt: "AI with Python",
-      footerLink: [
-        {
-          name: "View Certificate",
-          url: ""
-        }
-      ]
-    },
-    {
-      title: "Time Series Analysis & Stock Market Prediction",
-      subtitle:
-        "Advanced predictive modeling certification focusing on time series forecasting and financial market analysis using Python.",
-      image: require("./assets/images/TSAS.jpeg"),
-      imageAlt: "Time Series Analysis",
-      footerLink: [
-        {
-          name: "View Certificate",
-          url: ""
-        }
-      ]
-    },
-    {
-      title: "Big Data Analytics Course",
-      subtitle:
-        "Comprehensive certification in distributed systems, large-scale data processing, and analytics at enterprise scale.",
-      image: require("./assets/images/Big data analytics.jpeg"),
+        "Completed comprehensive certification in Big Data Analytics, covering distributed systems, data processing, and analytics at scale.",
+      image: require("./assets/images/pwaLogo.webp"),
       imageAlt: "Big Data Analytics",
       footerLink: [
         {
-          name: "View Certificate",
+          name: "Certification",
           url: ""
         }
       ]
     },
     {
-      title: "Applications of AI",
+      title: "Python with AI Certification",
       subtitle:
-        "Practical AI applications certification covering real-world use cases, industry implementations, and AI solution design.",
-      image: require("./assets/images/Applications of AI.jpeg"),
-      imageAlt: "Applications of AI",
+        "Advanced Python programming certification focused on AI implementation, covering machine learning libraries and AI frameworks.",
+      image: require("./assets/images/googleAssistantLogo.webp"),
+      imageAlt: "Python AI Certification",
       footerLink: [
         {
-          name: "View Certificate",
+          name: "View Certification",
           url: ""
         }
       ]
     },
+
     {
-      title: "Introduction to Neural Networks",
-      subtitle:
-        "Foundational deep learning certification covering neural network architectures, backpropagation, and training techniques.",
-      image: require("./assets/images/neural Networks.jpeg"),
-      imageAlt: "Neural Networks",
+      title: "Python Data Wrangling",
+      subtitle: "Certification in Python Data Wrangling covering data cleaning, transformation, and preprocessing techniques for ML pipelines.",
+      image: require("./assets/images/codeInLogo.webp"),
+      imageAlt: "Python Wrangling",
       footerLink: [
-        {
-          name: "View Certificate",
-          url: ""
-        }
-      ]
-    },
-    {
-      title: "Cloud Foundations – Advanced",
-      subtitle:
-        "Advanced cloud infrastructure certification for deploying and scaling ML workflows in production environments.",
-      image: require("./assets/images/Cloud Foundations.jpeg"),
-      imageAlt: "Cloud Foundations",
-      footerLink: [
-        {
-          name: "View Certificate",
-          url: ""
-        }
+        {name: "Certification", url: ""}
       ]
     }
   ],
