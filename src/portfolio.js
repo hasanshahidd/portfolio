@@ -66,51 +66,51 @@ https://fontawesome.com/icons?d=gallery */
 
   softwareSkills: [
     {
-      skillName: "python",
+      skillName: "Python",
       fontAwesomeClassname: "fab fa-python"
     },
     {
-      skillName: "tensorflow",
+      skillName: "TensorFlow",
       fontAwesomeClassname: "fas fa-brain"
     },
     {
-      skillName: "pytorch",
+      skillName: "PyTorch",
       fontAwesomeClassname: "fas fa-fire"
     },
     {
-      skillName: "docker",
+      skillName: "Docker",
       fontAwesomeClassname: "fab fa-docker"
     },
     {
-      skillName: "sql-database",
+      skillName: "SQL",
       fontAwesomeClassname: "fas fa-database"
     },
     {
-      skillName: "aws",
+      skillName: "AWS",
       fontAwesomeClassname: "fab fa-aws"
     },
     {
-      skillName: "git",
+      skillName: "Git",
       fontAwesomeClassname: "fab fa-git-alt"
     },
     {
-      skillName: "fastapi",
+      skillName: "FastAPI",
       fontAwesomeClassname: "fas fa-bolt"
     },
     {
-      skillName: "pandas",
+      skillName: "Pandas",
       fontAwesomeClassname: "fas fa-table"
     },
     {
-      skillName: "langchain",
+      skillName: "LangChain",
       fontAwesomeClassname: "fas fa-link"
     },
     {
-      skillName: "powerbi",
+      skillName: "Power BI",
       fontAwesomeClassname: "fas fa-chart-bar"
     },
     {
-      skillName: "flask",
+      skillName: "Flask",
       fontAwesomeClassname: "fas fa-flask"
     }
   ],
@@ -126,7 +126,7 @@ const educationInfo = {
       schoolName: "Superior University",
       logo: require("./assets/images/superior.jpg"),
       subHeader: "Bachelor of Science in Artificial Intelligence",
-      duration: "2019 - 2023",
+      duration: "",
       desc: "Focused on AI/ML fundamentals, data science, and Python programming.",
       descBullets: [
         "Relevant Coursework: Data Science, AI Programming, Python, Machine Learning",
@@ -142,27 +142,32 @@ const techStack = {
   viewSkillBars: true, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "GenAI & LLM Engineering", //Insert stack or technology you have experience in
-      progressPercentage: "95%" //Insert relative proficiency in percentage
+      Stack: "GenAI & LLM Engineering",
+      icon: "fas fa-brain",
+      progressPercentage: "95%"
     },
     {
       Stack: "Machine Learning & Data Science",
+      icon: "fas fa-chart-line",
       progressPercentage: "90%"
     },
     {
       Stack: "Python & Backend Development",
+      icon: "fab fa-python",
       progressPercentage: "88%"
     },
     {
       Stack: "Data Engineering & ETL",
+      icon: "fas fa-database",
       progressPercentage: "85%"
     },
     {
       Stack: "Business Intelligence & Dashboards",
+      icon: "fas fa-chart-bar",
       progressPercentage: "87%"
     }
   ],
-  displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
+  displayCodersrank: false
 };
 
 // Work experience section
