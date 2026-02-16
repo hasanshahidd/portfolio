@@ -66,52 +66,140 @@ https://fontawesome.com/icons?d=gallery */
 
   softwareSkills: [
     {
-      skillName: "Python",
+      skillName: "python",
       fontAwesomeClassname: "fab fa-python"
     },
     {
-      skillName: "TensorFlow",
+      skillName: "tensorflow",
       fontAwesomeClassname: "fas fa-brain"
     },
     {
-      skillName: "PyTorch",
+      skillName: "pytorch",
       fontAwesomeClassname: "fas fa-fire"
     },
     {
-      skillName: "Docker",
+      skillName: "docker",
       fontAwesomeClassname: "fab fa-docker"
     },
     {
-      skillName: "SQL",
+      skillName: "sql-database",
       fontAwesomeClassname: "fas fa-database"
     },
     {
-      skillName: "AWS",
+      skillName: "aws",
       fontAwesomeClassname: "fab fa-aws"
     },
     {
-      skillName: "Git",
+      skillName: "git",
       fontAwesomeClassname: "fab fa-git-alt"
     },
     {
-      skillName: "FastAPI",
+      skillName: "fastapi",
       fontAwesomeClassname: "fas fa-bolt"
     },
     {
-      skillName: "Pandas",
+      skillName: "pandas",
       fontAwesomeClassname: "fas fa-table"
     },
     {
-      skillName: "LangChain",
+      skillName: "langchain",
       fontAwesomeClassname: "fas fa-link"
     },
     {
-      skillName: "Power BI",
+      skillName: "powerbi",
       fontAwesomeClassname: "fas fa-chart-bar"
     },
     {
-      skillName: "Flask",
+      skillName: "flask",
       fontAwesomeClassname: "fas fa-flask"
+    }
+  ],
+  display: true // Set false to hide this section, defaults to true
+};
+
+// Services Section
+
+const servicesSection = {
+  title: "Services I Offer",
+  subTitle: "COMPREHENSIVE AI/ML AND DATA SCIENCE SOLUTIONS FOR YOUR BUSINESS",
+  services: [
+    {
+      title: "GenAI & LLM Solutions",
+      iconClass: "fas fa-robot",
+      description: "Enterprise-grade AI applications with LLM agents, RAG systems, and intelligent automation.",
+      details: [
+        "Build custom LLM agents with LangChain, ReAct, and function calling",
+        "Design RAG systems with vector stores (Pinecone, FAISS, Weaviate)",
+        "Implement guardrails, validation, and compliance frameworks",
+        "Integrate GPT-4, Claude, and open-source models",
+        "Deploy production-ready GenAI pipelines with monitoring"
+      ],
+      technologies: ["LangChain", "OpenAI", "Anthropic", "Pinecone", "FAISS", "Hugging Face"]
+    },
+    {
+      title: "Enterprise AI Systems",
+      iconClass: "fas fa-building",
+      description: "End-to-end AI systems for GRC, compliance, procurement, and business intelligence.",
+      details: [
+        "GRC & compliance intelligence platforms with natural language query",
+        "AI-powered procurement and vendor management assistants",
+        "Document intelligence with OCR, extraction, and classification",
+        "Automated audit evidence retrieval and reporting",
+        "Custom enterprise chatbots with backend API integration"
+      ],
+      technologies: ["FastAPI", "Docker", "Azure", "AWS", "PostgreSQL", "Redis"]
+    },
+    {
+      title: "Machine Learning Models",
+      iconClass: "fas fa-brain",
+      description: "Production ML models for prediction, classification, and decision support systems.",
+      details: [
+        "Predictive models (regression, time series, forecasting)",
+        "Classification systems (risk assessment, churn prediction)",
+        "NLP models (sentiment analysis, text classification, NER)",
+        "Computer vision applications (OCR, image classification)",
+        "Model deployment with CI/CD pipelines and monitoring"
+      ],
+      technologies: ["TensorFlow", "PyTorch", "Scikit-learn", "XGBoost", "MLflow", "Docker"]
+    },
+    {
+      title: "Data Engineering & ETL",
+      iconClass: "fas fa-cogs",
+      description: "Scalable data pipelines, ETL workflows, and data warehouse solutions.",
+      details: [
+        "Design ETL pipelines for multi-source data integration",
+        "Build data warehouses and lakes (Azure, AWS, Snowflake)",
+        "Implement real-time data streaming (Kafka, Spark)",
+        "Data quality validation and monitoring frameworks",
+        "API development for data access and orchestration"
+      ],
+      technologies: ["Apache Airflow", "Pandas", "PySpark", "SQL", "Azure Data Factory", "AWS Glue"]
+    },
+    {
+      title: "Business Intelligence & Dashboards",
+      iconClass: "fas fa-chart-line",
+      description: "Interactive dashboards and BI solutions that drive data-driven decision making.",
+      details: [
+        "Power BI dashboards with advanced DAX calculations",
+        "Real-time web dashboards (Plotly Dash, Streamlit)",
+        "KPI tracking and executive reporting systems",
+        "Sales, inventory, and operational analytics",
+        "Embedded analytics and white-label solutions"
+      ],
+      technologies: ["Power BI", "Tableau", "Plotly", "Dash", "Streamlit", "D3.js"]
+    },
+    {
+      title: "AI Consulting & Strategy",
+      iconClass: "fas fa-lightbulb",
+      description: "Strategic AI consulting to identify opportunities and build implementation roadmaps.",
+      details: [
+        "AI readiness assessment and opportunity identification",
+        "GenAI use case discovery and feasibility analysis",
+        "ML model architecture design and technology selection",
+        "Team training on AI/ML tools and best practices",
+        "Technical due diligence and code reviews"
+      ],
+      technologies: ["Strategy", "Training", "Architecture", "Best Practices", "Mentorship"]
     }
   ],
   display: true // Set false to hide this section, defaults to true
@@ -126,7 +214,7 @@ const educationInfo = {
       schoolName: "Superior University",
       logo: require("./assets/images/superior.jpg"),
       subHeader: "Bachelor of Science in Artificial Intelligence",
-      duration: "",
+      duration: "2019 - 2023",
       desc: "Focused on AI/ML fundamentals, data science, and Python programming.",
       descBullets: [
         "Relevant Coursework: Data Science, AI Programming, Python, Machine Learning",
@@ -139,35 +227,30 @@ const educationInfo = {
 // Your top 3 proficient stacks/tech experience
 
 const techStack = {
-  viewSkillBars: true, //Set it to true to show Proficiency Section
+  viewSkillBars: false, //Set it to true to show Proficiency Section
   experience: [
     {
-      Stack: "GenAI & LLM Engineering",
-      icon: "fas fa-brain",
-      progressPercentage: "95%"
+      Stack: "GenAI & LLM Engineering", //Insert stack or technology you have experience in
+      progressPercentage: "95%" //Insert relative proficiency in percentage
     },
     {
       Stack: "Machine Learning & Data Science",
-      icon: "fas fa-chart-line",
       progressPercentage: "90%"
     },
     {
       Stack: "Python & Backend Development",
-      icon: "fab fa-python",
       progressPercentage: "88%"
     },
     {
       Stack: "Data Engineering & ETL",
-      icon: "fas fa-database",
       progressPercentage: "85%"
     },
     {
       Stack: "Business Intelligence & Dashboards",
-      icon: "fas fa-chart-bar",
       progressPercentage: "87%"
     }
   ],
-  displayCodersrank: false
+  displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
 };
 
 // Work experience section
@@ -251,57 +334,57 @@ const bigProjects = {
 // Include certificates, talks etc
 
 const achievementSection = {
-  title: emoji("Certifications & Achievements 🏆 "),
+  title: emoji("Achievements And Certifications 🏆 "),
   subtitle:
-    "Professional certifications and key accomplishments in AI/ML and Data Science",
+    "Professional certifications in Artificial Intelligence, Machine Learning, and Data Science",
 
   achievementsCards: [
     {
-      title: "Artificial Intelligence with Python",
+      title: "AI with Python",
       subtitle:
-        "Python-based AI certification covering machine learning algorithms, neural networks, and intelligent system development.",
+        "Completed comprehensive training in Artificial Intelligence programming with Python, covering AI algorithms, libraries, and practical implementations.",
       image: require("./assets/images/AI with python.jpeg"),
-      imageAlt: "AI with Python",
+      imageAlt: "AI with Python Certificate",
       footerLink: []
     },
     {
-      title: "Time Series Analysis & Stock Market Prediction",
+      title: "Big Data Analytics",
       subtitle:
-        "Advanced predictive modeling certification focusing on time series forecasting and financial market analysis using Python.",
-      image: require("./assets/images/TSAS.jpeg"),
-      imageAlt: "Time Series Analysis",
-      footerLink: []
-    },
-    {
-      title: "Big Data Analytics Course",
-      subtitle:
-        "Comprehensive certification in distributed systems, large-scale data processing, and analytics at enterprise scale.",
+        "Advanced certification in Big Data Analytics, focusing on large-scale data processing, analysis techniques, and business intelligence applications.",
       image: require("./assets/images/Big data analytics.jpeg"),
-      imageAlt: "Big Data Analytics",
+      imageAlt: "Big Data Analytics Certificate",
       footerLink: []
     },
     {
       title: "Applications of AI",
       subtitle:
-        "Practical AI applications certification covering real-world use cases, industry implementations, and AI solution design.",
+        "Specialized training in practical applications of Artificial Intelligence across various domains and industry use cases.",
       image: require("./assets/images/Applications of AI.jpeg"),
-      imageAlt: "Applications of AI",
+      imageAlt: "Applications of AI Certificate",
       footerLink: []
     },
     {
-      title: "Introduction to Neural Networks",
+      title: "Neural Networks",
       subtitle:
-        "Foundational deep learning certification covering neural network architectures, backpropagation, and training techniques.",
+        "Deep learning certification covering neural network architectures, training methodologies, and implementation of deep learning models.",
       image: require("./assets/images/neural Networks.jpeg"),
-      imageAlt: "Neural Networks",
+      imageAlt: "Neural Networks Certificate",
       footerLink: []
     },
     {
-      title: "Cloud Foundations – Advanced",
+      title: "Time Series Analysis & Statistics",
       subtitle:
-        "Advanced cloud infrastructure certification for deploying and scaling ML workflows in production environments.",
+        "Advanced training in Time Series Analysis and Statistical methods for forecasting, trend analysis, and data-driven decision making.",
+      image: require("./assets/images/TSAS.jpeg"),
+      imageAlt: "Time Series Analysis Certificate",
+      footerLink: []
+    },
+    {
+      title: "Cloud Foundations",
+      subtitle:
+        "Comprehensive certification in cloud computing fundamentals, cloud architecture, and deployment strategies on major cloud platforms.",
       image: require("./assets/images/Cloud Foundations.jpeg"),
-      imageAlt: "Cloud Foundations",
+      imageAlt: "Cloud Foundations Certificate",
       footerLink: []
     }
   ],
@@ -396,6 +479,7 @@ export {
   socialMediaLinks,
   splashScreen,
   skillsSection,
+  servicesSection,
   educationInfo,
   techStack,
   workExperiences,
