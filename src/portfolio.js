@@ -214,7 +214,7 @@ const educationInfo = {
       schoolName: "Superior University",
       logo: require("./assets/images/superior.jpg"),
       subHeader: "Bachelor of Science in Artificial Intelligence",
-      duration: "2019 - 2023",
+      duration: "",
       desc: "Focused on AI/ML fundamentals, data science, and Python programming.",
       descBullets: [
         "Relevant Coursework: Data Science, AI Programming, Python, Machine Learning",
