@@ -8,13 +8,15 @@ export default function Top() {
   }
   // When the user scrolls down 20px from the top of the document, show the button
   function scrollFunction() {
+    const topBtn = document.getElementById("topButton");
+    if (!topBtn) return;
     if (
       document.body.scrollTop > 20 ||
       document.documentElement.scrollTop > 20
     ) {
-      document.getElementById("topButton").style.visibility = "visible";
+      topBtn.style.visibility = "visible";
     } else {
-      document.getElementById("topButton").style.visibility = "hidden";
+      topBtn.style.visibility = "hidden";
     }
   }
   window.onscroll = function () {
