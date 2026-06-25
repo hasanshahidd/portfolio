@@ -47,6 +47,7 @@ function ProjectCard({
         }}
         role="button"
         tabIndex={0}
+        title="Click to view case study"
         aria-label={`View case study: ${project.title}`}
         style={{ rotateX: rx, rotateY: ry, transformPerspective: 1000 }}
         className="group relative h-full cursor-pointer overflow-hidden rounded-2xl border border-white/8 bg-panel/70 p-7 transition-colors hover:border-violet/40"
@@ -78,8 +79,9 @@ function ProjectCard({
             ))}
           </div>
 
-          <span className="mt-5 inline-block text-xs font-medium text-cyan/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            View case study &rarr;
+          <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-cyan/80 transition-colors duration-300 group-hover:text-cyan">
+            Click to view case study
+            <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
           </span>
         </div>
       </motion.div>
