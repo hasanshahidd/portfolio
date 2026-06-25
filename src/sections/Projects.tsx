@@ -57,8 +57,9 @@ function ProjectCard({
         <div className="relative">
           <div className="mb-4 flex items-center justify-between">
             <span className="font-mono text-sm text-cyan/70">{String(index + 1).padStart(2, '0')}</span>
-            <span className="text-lg text-white/25 transition-all duration-300 group-hover:translate-x-1 group-hover:text-cyan">
-              &rarr;
+            <span className="inline-flex items-center gap-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-cyan/80 transition-colors duration-300 group-hover:text-cyan">
+              Click to view
+              <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
             </span>
           </div>
 
@@ -79,10 +80,6 @@ function ProjectCard({
             ))}
           </div>
 
-          <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-cyan/80 transition-colors duration-300 group-hover:text-cyan">
-            Click to view case study
-            <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
-          </span>
         </div>
       </motion.div>
     </Reveal>
