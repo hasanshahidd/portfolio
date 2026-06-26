@@ -8,7 +8,7 @@ import { projects, type Project } from '../data/portfolio'
 // Projects grouped by discipline: AI, SaaS, Data Science, Data Analytics.
 const GROUPS = [
   {
-    label: 'AI',
+    label: 'AI & SaaS',
     titles: [
       'Agentic Procurement Intelligence Platform',
       'Enterprise GRC & Compliance Intelligence',
@@ -18,12 +18,16 @@ const GROUPS = [
       'Voice AI Patient Registration System',
       'OMANI Therapist Voice',
       'Real-Time Facial Emotion Detection',
+      'Multi-Tenant Management System',
     ],
   },
-  { label: 'SaaS', titles: ['Multi-Tenant Management System'] },
   {
     label: 'Data Science',
-    titles: ['Healthcare Readmission Risk Prediction', 'Ace Predictor: Tennis Match Prediction'],
+    titles: [
+      'Real-Time Fraud Detection Engine',
+      'Healthcare Readmission Risk Prediction',
+      'Ace Predictor: Tennis Match Prediction',
+    ],
   },
   {
     label: 'Data Analytics',

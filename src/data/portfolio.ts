@@ -386,6 +386,20 @@ export const projects: Project[] = [
     ],
     metric: 'Isolated multi-tenant platform',
   },
+  {
+    title: 'Real-Time Fraud Detection Engine',
+    category: 'ML · Fintech',
+    problem: 'Static rules miss evolving card fraud while flagging too many legitimate transactions, costing money and trust.',
+    blurb:
+      'A real-time fraud-detection engine that scores transactions in milliseconds, combining a gradient-boosted model with anomaly detection to catch fraud while keeping false positives low.',
+    tags: ['XGBoost', 'scikit-learn', 'Isolation Forest', 'SMOTE', 'Kafka', 'FastAPI'],
+    highlights: [
+      'Gradient-boosted classifier plus Isolation Forest anomaly scoring over streaming transactions.',
+      'Engineered velocity, device and geolocation features with SMOTE class-imbalance handling.',
+      'Sub-50ms scoring served via FastAPI, with precision-recall tuned to minimise false positives.',
+    ],
+    metric: '94% recall · 60% fewer false positives',
+  },
 ]
 
 export type Stat = { value: number; suffix: string; prefix?: string; label: string }

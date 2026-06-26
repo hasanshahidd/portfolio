@@ -372,9 +372,58 @@ function TenantPods() {
   )
 }
 
+// 15. Fraud Detection - a radar sweep over glass nodes, flagging an anomaly.
+function FraudRadar() {
+  const sweep = useRef<THREE.Group>(null)
+  const alert = useRef<THREE.Mesh>(null)
+  const nodes = useMemo(
+    () => [[0.9, 0.5], [-1.1, 0.3], [0.4, -1.0], [-0.6, -0.7], [1.2, -0.4]] as [number, number][],
+    [],
+  )
+  useFrame((s: RootState, d) => {
+    if (sweep.current) sweep.current.rotation.z -= d * 1.4
+    if (alert.current) {
+      const p = Math.sin(s.clock.elapsedTime * 4) * 0.5 + 0.5
+      alert.current.scale.setScalar(0.9 + p * 0.5)
+      ;(alert.current.material as THREE.MeshStandardMaterial).emissiveIntensity = 2 + p * 5
+    }
+  })
+  return (
+    <group rotation={[0.95, 0, 0]}>
+      <mesh><torusGeometry args={[1.7, 0.012, 16, 140]} /><meshStandardMaterial {...glow} /></mesh>
+      <mesh>
+        <torusGeometry args={[1.1, 0.01, 16, 140]} />
+        <meshStandardMaterial color="#4f8bff" emissive="#4f8bff" emissiveIntensity={1.2} transparent opacity={0.5} toneMapped={false} />
+      </mesh>
+      {/* sweeping radar arm */}
+      <group ref={sweep}>
+        <mesh position={[0.85, 0, 0]}>
+          <planeGeometry args={[1.7, 0.05]} />
+          <meshBasicMaterial color="#9ec5ff" transparent opacity={0.45} side={THREE.DoubleSide} />
+        </mesh>
+      </group>
+      {/* glass core */}
+      <mesh><icosahedronGeometry args={[0.4, 1]} /><meshPhysicalMaterial {...glass} /></mesh>
+      {/* normal transaction nodes */}
+      {nodes.map((n, i) => (
+        <mesh key={i} position={[n[0], n[1], 0]}>
+          <sphereGeometry args={[0.07, 16, 16]} />
+          <meshStandardMaterial color="#6fa0ff" emissive="#4f8bff" emissiveIntensity={1} toneMapped={false} />
+        </mesh>
+      ))}
+      {/* flagged anomaly */}
+      <mesh ref={alert} position={[-1.0, 0.9, 0]}>
+        <sphereGeometry args={[0.1, 16, 16]} />
+        <meshStandardMaterial color="#ffffff" emissive="#cfe0ff" emissiveIntensity={3} toneMapped={false} />
+      </mesh>
+    </group>
+  )
+}
+
 // Map each project (by title) to its own unique scene.
 export function sceneForTitle(title: string) {
   const t = title.toLowerCase()
+  if (t.includes('fraud')) return <FraudRadar />
   if (t.includes('kavak') || t.includes('travel')) return <TravelGlobe />
   if (t.includes('finsight') || t.includes('finance')) return <FinanceCoins />
   if (t.includes('tenant')) return <TenantPods />
