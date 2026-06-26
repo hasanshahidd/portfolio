@@ -5,6 +5,29 @@ import Reveal from '../components/Reveal'
 import ProjectModal from '../components/ProjectModal'
 import { projects, type Project } from '../data/portfolio'
 
+// Display order: AI first, then SaaS, then Data Science, then Data Analytics.
+const ORDER = [
+  // AI
+  'Agentic Procurement Intelligence Platform',
+  'Enterprise GRC & Compliance Intelligence',
+  'RAG Compliance Intelligence Platform',
+  'Kavak Travel Assistant',
+  'FinSight Personal Finance Assistant',
+  'Voice AI Patient Registration System',
+  'OMANI Therapist Voice',
+  'Real-Time Facial Emotion Detection',
+  // SaaS
+  'Multi-Tenant Management System',
+  // Data Science
+  'Healthcare Readmission Risk Prediction',
+  'Ace Predictor: Tennis Match Prediction',
+  // Data Analytics / Engineering
+  'Pandemic Pulse: COVID-19 Intelligence',
+  'NYC Taxi Intelligence',
+  'GlobalMart Sales Analysis',
+]
+const orderedProjects = [...projects].sort((a, b) => ORDER.indexOf(a.title) - ORDER.indexOf(b.title))
+
 function ProjectCard({
   project,
   index,
@@ -98,7 +121,7 @@ export default function Projects() {
       />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((p, i) => (
+        {orderedProjects.map((p, i) => (
           <ProjectCard key={p.title} project={p} index={i} onOpen={setSelected} />
         ))}
       </div>
