@@ -34,7 +34,7 @@ export default function Hero() {
         className="relative z-10 mx-auto w-full max-w-6xl px-6"
       >
         <motion.span variants={item} className="eyebrow">
-          {profile.location} · Available for remote
+          {profile.location} · Open to remote & on-site
         </motion.span>
 
         <motion.h1

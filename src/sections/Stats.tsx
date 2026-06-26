@@ -24,8 +24,8 @@ function Counter({ stat }: { stat: Stat }) {
   }, [inView, stat.value])
 
   return (
-    <div ref={ref} className="text-center">
-      <div className="font-display text-4xl font-bold tracking-tight md:text-5xl">
+    <div ref={ref} className="w-28 text-center sm:w-32">
+      <div className="font-display text-3xl font-bold tracking-tight md:text-4xl">
         <span className="gradient-text">
           {stat.prefix}
           {val}
@@ -40,7 +40,7 @@ function Counter({ stat }: { stat: Stat }) {
 export default function Stats() {
   return (
     <section className="border-y border-white/8 bg-panel/40">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-y-12 px-6 py-16 md:grid-cols-3 lg:grid-cols-6">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-start justify-center gap-x-10 gap-y-10 px-6 py-14 md:gap-x-16">
         {stats.map((s) => (
           <Counter key={s.label} stat={s} />
         ))}

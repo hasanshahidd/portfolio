@@ -17,7 +17,7 @@ export default function Contact() {
             <SectionHeading
               eyebrow="07 / Contact"
               title={<>Let's build something <em>intelligent</em></>}
-              subtitle="Open to remote engagements across EU, UK, US and AUS time zones, from enterprise GenAI builds to trial-based and agile delivery."
+              subtitle="Open to remote and on-site roles across EU, UK, US and AUS time zones, from enterprise GenAI builds to trial-based and agile delivery."
             />
 
             <Reveal>
