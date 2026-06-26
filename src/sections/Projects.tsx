@@ -5,28 +5,32 @@ import Reveal from '../components/Reveal'
 import ProjectModal from '../components/ProjectModal'
 import { projects, type Project } from '../data/portfolio'
 
-// Display order: AI first, then SaaS, then Data Science, then Data Analytics.
-const ORDER = [
-  // AI
-  'Agentic Procurement Intelligence Platform',
-  'Enterprise GRC & Compliance Intelligence',
-  'RAG Compliance Intelligence Platform',
-  'Kavak Travel Assistant',
-  'FinSight Personal Finance Assistant',
-  'Voice AI Patient Registration System',
-  'OMANI Therapist Voice',
-  'Real-Time Facial Emotion Detection',
-  // SaaS
-  'Multi-Tenant Management System',
-  // Data Science
-  'Healthcare Readmission Risk Prediction',
-  'Ace Predictor: Tennis Match Prediction',
-  // Data Analytics / Engineering
-  'Pandemic Pulse: COVID-19 Intelligence',
-  'NYC Taxi Intelligence',
-  'GlobalMart Sales Analysis',
+// Projects grouped by discipline: AI, SaaS, Data Science, Data Analytics.
+const GROUPS = [
+  {
+    label: 'AI',
+    titles: [
+      'Agentic Procurement Intelligence Platform',
+      'Enterprise GRC & Compliance Intelligence',
+      'RAG Compliance Intelligence Platform',
+      'Kavak Travel Assistant',
+      'FinSight Personal Finance Assistant',
+      'Voice AI Patient Registration System',
+      'OMANI Therapist Voice',
+      'Real-Time Facial Emotion Detection',
+    ],
+  },
+  { label: 'SaaS', titles: ['Multi-Tenant Management System'] },
+  {
+    label: 'Data Science',
+    titles: ['Healthcare Readmission Risk Prediction', 'Ace Predictor: Tennis Match Prediction'],
+  },
+  {
+    label: 'Data Analytics',
+    titles: ['Pandemic Pulse: COVID-19 Intelligence', 'NYC Taxi Intelligence', 'GlobalMart Sales Analysis'],
+  },
 ]
-const orderedProjects = [...projects].sort((a, b) => ORDER.indexOf(a.title) - ORDER.indexOf(b.title))
+const byTitle: Record<string, Project> = Object.fromEntries(projects.map((p) => [p.title, p]))
 
 function ProjectCard({
   project,
@@ -120,11 +124,29 @@ export default function Projects() {
         subtitle="Real-world projects spanning compliance, procurement, voice AI, fintech, travel and analytics. Click any card for the full case study."
       />
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {orderedProjects.map((p, i) => (
-          <ProjectCard key={p.title} project={p} index={i} onOpen={setSelected} />
-        ))}
-      </div>
+      {(() => {
+        let n = 0
+        return GROUPS.map((g) => (
+          <div key={g.label} className="mb-16 last:mb-0">
+            <Reveal>
+              <div className="mb-7 flex items-center gap-4">
+                <h3 className="font-display text-lg font-semibold text-white/85">{g.label}</h3>
+                <span className="font-mono text-xs text-white/35">
+                  {g.titles.length} {g.titles.length === 1 ? 'project' : 'projects'}
+                </span>
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+            </Reveal>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {g.titles.map((t) => {
+                const p = byTitle[t]
+                const idx = n++
+                return p ? <ProjectCard key={t} project={p} index={idx} onOpen={setSelected} /> : null
+              })}
+            </div>
+          </div>
+        ))
+      })()}
 
       <ProjectModal project={selected} onClose={() => setSelected(null)} />
     </section>
