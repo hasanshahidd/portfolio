@@ -94,7 +94,7 @@ export default function Projects() {
       <SectionHeading
         eyebrow="05 / Case Studies"
         title={<>Systems in production, with <em>measurable</em> impact</>}
-        subtitle="Eleven projects spanning compliance, procurement, voice AI, computer vision and analytics. Click any card for the full case study."
+        subtitle="Real-world projects spanning compliance, procurement, voice AI, fintech, travel and analytics. Click any card for the full case study."
       />
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

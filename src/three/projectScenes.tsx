@@ -296,9 +296,88 @@ function SalesGlobe() {
   )
 }
 
+// 12. Kavak Travel - glass planet with a marker traveling its orbital route.
+function TravelGlobe() {
+  const planet = useRef<THREE.Mesh>(null)
+  const marker = useRef<THREE.Mesh>(null)
+  useFrame((s: RootState, d) => {
+    if (planet.current) planet.current.rotation.y += d * 0.2
+    if (marker.current) {
+      const a = s.clock.elapsedTime
+      marker.current.position.set(Math.cos(a) * 1.5, 0, Math.sin(a) * 1.5)
+    }
+  })
+  return (
+    <group rotation={[0.5, 0, 0]}>
+      <mesh ref={planet}><sphereGeometry args={[0.9, 48, 48]} /><meshPhysicalMaterial {...glass} /></mesh>
+      <mesh rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[1.5, 0.015, 16, 140]} /><meshStandardMaterial {...glow} /></mesh>
+      <mesh ref={marker}><sphereGeometry args={[0.11, 16, 16]} /><meshStandardMaterial {...core} /></mesh>
+    </group>
+  )
+}
+
+// 13. FinSight - a rotating stack of glass coins with a glowing core.
+function FinanceCoins() {
+  const g = useRef<THREE.Group>(null)
+  const coins = useRef<(THREE.Mesh | null)[]>([])
+  useFrame((s: RootState, d) => {
+    if (g.current) g.current.rotation.y += d * 0.3
+    const t = s.clock.elapsedTime
+    coins.current.forEach((m, i) => {
+      if (!m) return
+      m.position.y = -0.7 + i * 0.34 + Math.sin(t * 1.4 + i) * 0.05
+    })
+  })
+  return (
+    <group ref={g} rotation={[0.3, 0, 0]}>
+      {Array.from({ length: 5 }).map((_, i) => (
+        <mesh key={i} rotation={[Math.PI / 2, 0, 0]} ref={(el) => { coins.current[i] = el }}>
+          <cylinderGeometry args={[0.7 - i * 0.05, 0.7 - i * 0.05, 0.14, 40]} />
+          <meshPhysicalMaterial {...glass} />
+        </mesh>
+      ))}
+      <mesh position={[0, 1.15, 0]}><icosahedronGeometry args={[0.3, 1]} /><meshStandardMaterial {...core} /></mesh>
+    </group>
+  )
+}
+
+// 14. Multi-Tenant System - isolated glass tenant pods orbiting a central core.
+function TenantPods() {
+  const g = useRef<THREE.Group>(null)
+  const pods = useRef<(THREE.Mesh | null)[]>([])
+  const N = 5
+  useFrame((s: RootState, d) => {
+    if (g.current) g.current.rotation.y += d * 0.25
+    const t = s.clock.elapsedTime
+    pods.current.forEach((m, i) => {
+      if (!m) return
+      m.rotation.x += 0.01
+      m.rotation.y += 0.012
+      m.position.y = Math.sin(t + i) * 0.12
+    })
+  })
+  return (
+    <group ref={g}>
+      <mesh><icosahedronGeometry args={[0.55, 1]} /><meshStandardMaterial {...core} /></mesh>
+      <mesh rotation={[Math.PI / 2, 0, 0]}><torusGeometry args={[1.6, 0.015, 16, 120]} /><meshStandardMaterial {...glow} /></mesh>
+      {Array.from({ length: N }).map((_, i) => {
+        const a = (i / N) * Math.PI * 2
+        return (
+          <mesh key={i} position={[Math.cos(a) * 1.6, 0, Math.sin(a) * 1.6]} ref={(el) => { pods.current[i] = el }}>
+            <boxGeometry args={[0.45, 0.45, 0.45]} /><meshPhysicalMaterial {...glass} />
+          </mesh>
+        )
+      })}
+    </group>
+  )
+}
+
 // Map each project (by title) to its own unique scene.
 export function sceneForTitle(title: string) {
   const t = title.toLowerCase()
+  if (t.includes('kavak') || t.includes('travel')) return <TravelGlobe />
+  if (t.includes('finsight') || t.includes('finance')) return <FinanceCoins />
+  if (t.includes('tenant')) return <TenantPods />
   if (t.includes('procurement')) return <Procurement />
   if (t.includes('grc')) return <Compliance />
   if (t.includes('patient')) return <PatientVoice />

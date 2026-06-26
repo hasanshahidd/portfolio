@@ -344,6 +344,48 @@ export const projects: Project[] = [
     ],
     metric: 'Unified BI platform',
   },
+  {
+    title: 'Kavak Travel Assistant',
+    category: 'Agentic AI · Travel',
+    problem: 'Travel chatbots hallucinate facts and leak filters across turns, so users cannot trust them.',
+    blurb:
+      'A conversational travel-planning agent (flight search, visa and refund Q&A, multi-turn refinement) built so hallucination is structurally impossible and every answer is observable.',
+    tags: ['Python', 'OpenAI', 'RAG', 'Streamlit', 'Prompt Engineering', 'Evals'],
+    highlights: [
+      'Citation-by-construction RAG: every cited span is verified against its source and unverified claims are stripped.',
+      'Multi-turn override memory with topic-switch detection across 16 tested scenarios.',
+      'Adversarial eval set (prompt injection, PII, hallucination bait) plus a live agent-trace sidebar.',
+    ],
+    metric: '0 hallucinated citations · 97.5% UAT',
+  },
+  {
+    title: 'FinSight Personal Finance Assistant',
+    category: 'Agentic AI · Fintech',
+    problem: 'Personal-finance questions need grounded, auditable answers over a user’s real transactions, not generic advice.',
+    blurb:
+      'A conversational personal-finance assistant with a multi-agent LangGraph supervisor and four specialists, hybrid RAG, a React UI and an n8n-governed chat path.',
+    tags: ['LangGraph', 'FastAPI', 'React', 'n8n', 'ChromaDB', 'OpenAI', 'Docker'],
+    highlights: [
+      'Multi-agent LangGraph supervisor routing to four specialist agents.',
+      'Hybrid RAG (dense + BM25) over seeded transactions and a 21-document knowledge base.',
+      'n8n as the only chat path (validate, rate-limit, backend, audit); one-command Docker stack.',
+    ],
+    metric: 'Multi-agent finance copilot',
+  },
+  {
+    title: 'Multi-Tenant Management System',
+    category: 'Enterprise · SaaS',
+    problem: 'Enterprise AI products must serve many clients from one platform without ever leaking data between tenants.',
+    blurb:
+      'A multi-tenant platform that onboards clients into fully isolated workspaces with role-based access, per-tenant data isolation and audit-ready logging.',
+    tags: ['FastAPI', 'PostgreSQL', 'RBAC', 'JWT', 'React', 'Docker'],
+    highlights: [
+      'Per-tenant data isolation with row-level security and tenant-scoped queries.',
+      'Role-based access control and JWT auth enforced across tenant boundaries.',
+      'Tenant onboarding, usage metering and audit-ready logging in an admin console.',
+    ],
+    metric: 'Isolated multi-tenant platform',
+  },
 ]
 
 export type Stat = { value: number; suffix: string; prefix?: string; label: string }
