@@ -11,14 +11,14 @@ export default function Preloader() {
   useEffect(() => {
     let p = 0
     const id = setInterval(() => {
-      p += Math.random() * 4 + 2
+      p += Math.random() * 5 + 2.5
       if (p >= 100) {
         p = 100
         clearInterval(id)
-        setTimeout(() => setDone(true), 1100)
+        setTimeout(() => setDone(true), 900)
       }
       setProgress(Math.floor(p))
-    }, 190)
+    }, 180)
     return () => clearInterval(id)
   }, [])
 
@@ -56,14 +56,19 @@ export default function Preloader() {
               The web is more than a <em>flat page</em>.
             </motion.h1>
 
-            <div className="mx-auto mt-9 h-px w-full max-w-sm overflow-hidden bg-white/10">
+            <div className="mx-auto mt-10 h-2.5 w-full max-w-md overflow-hidden rounded-full border border-white/15 bg-white/[0.06] shadow-[inset_0_1px_2px_rgba(255,255,255,0.12)] backdrop-blur-sm">
               <motion.div
-                className="h-full bg-gradient-to-r from-cyan to-violet"
+                className="relative h-full rounded-full bg-gradient-to-r from-cyan via-accent to-violet shadow-[0_0_20px_rgba(79,139,255,0.75)]"
                 animate={{ width: `${progress}%` }}
-                transition={{ ease: 'easeOut', duration: 0.15 }}
-              />
+                transition={{ ease: 'easeOut', duration: 0.2 }}
+              >
+                {/* glossy top highlight */}
+                <span className="absolute inset-x-0 top-0 h-1/2 rounded-full bg-white/35" />
+                {/* moving sheen */}
+                <span className="absolute inset-0 animate-shimmer bg-[length:200%_100%] bg-[linear-gradient(110deg,transparent_30%,rgba(255,255,255,0.55),transparent_70%)]" />
+              </motion.div>
             </div>
-            <div className="mt-3 font-mono text-xs text-white/40">{progress}%</div>
+            <div className="mt-4 font-mono text-sm font-medium tracking-[0.25em] text-white/70">{progress}%</div>
           </div>
         </motion.div>
       )}
