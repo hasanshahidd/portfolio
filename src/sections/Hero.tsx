@@ -16,7 +16,7 @@ const item = {
 
 export default function Hero() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden">
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden pb-20 pt-28 md:pt-24">
       {/* 3D backdrop */}
       <div className="absolute inset-0 -z-0">
         <Suspense fallback={null}>
