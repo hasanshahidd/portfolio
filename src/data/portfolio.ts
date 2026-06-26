@@ -409,6 +409,7 @@ export const stats: Stat[] = [
   { value: 10, suffix: 'M+', label: 'Data rows analyzed' },
   { value: 6.7, suffix: 'M+', prefix: '$', label: 'Annual savings delivered' },
   { value: 40, suffix: '', label: 'Agent autonomous crew' },
+  { value: 3, suffix: '+', label: 'Years AI & data' },
 ]
 
 export const education = {
